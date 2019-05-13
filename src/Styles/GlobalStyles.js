@@ -13,8 +13,8 @@ export default createGlobalStyle`
         font-family: 'Open Sans','Nanum Gothic', sans-serif;
     }
     a{
-        color:${props => props.theme.blueColor}
-        text-decoration:none
+        color:${props => props.theme.blueColor};
+        text-decoration: none;
     }
     input:focus{
         outline: none;
