@@ -10,9 +10,11 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.div`
+  margin-bottom: 50px;
   display: grid;
   grid-gap: 25px;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 160px;
   grid-auto-rows: 160px;
 `;
 
@@ -43,6 +45,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
                 isFollowing={user.isFollowing}
                 url={user.avatar}
                 isSelf={user.isSelf}
+                id={user.id}
               />
             ))
           )}
