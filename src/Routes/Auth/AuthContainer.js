@@ -46,17 +46,17 @@ export default () => {
             data: { requestSecret }
           } = await requestSecretMutation();
           if (!requestSecret) {
-            toast.error("You don't have an account yet, creat one");
+            toast.error("계정을 생성해주세요");
             setTimeout(() => setAction("signUp"), 3000);
           } else {
-            toast.success("Check your inbox for your login secret");
+            toast.success("이메일에서 login secret을 확인해주세요");
             setAction("confirm");
           }
         } catch {
-          toast.error("Can't request secret, try again");
+          toast.error("비밀번호를 확인해주세요");
         }
       } else {
-        toast.error("Email is required");
+        toast.error("이메일을 확인해주세요");
       }
     } else if (action === "signUp") {
       if (
@@ -70,16 +70,16 @@ export default () => {
             data: { createAccount }
           } = await createAccountMutation();
           if (!createAccount) {
-            toast.error("Can't create account");
+            toast.error("계정을 생성할 수 없습니다");
           } else {
-            toast.success("Account created! Log In now");
+            toast.success("계정이 생성되었습니다");
             setTimeout(() => setAction("logIn"), 3000);
           }
         } catch (e) {
           toast.error(e.message);
         }
       } else {
-        toast.error("All field are required");
+        toast.error("빈칸을 채워주세요");
       }
     } else if (action === "confirm") {
       if (secret.value !== "") {
@@ -93,7 +93,7 @@ export default () => {
             throw Error();
           }
         } catch {
-          toast.error("Can't confirm secret,check again");
+          toast.error("비밀번호를 다시 확인해주세요");
         }
       }
     }
